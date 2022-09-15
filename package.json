@@ -1,0 +1,20 @@
+{
+  "name": "codeschool-webscraper",
+  "version": "1.0.0",
+  "description": "Getting started with scraping data from the web using NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pkd2512/codeschool-webscraper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pkd2512/codeschool-webscraper/issues"
+  },
+  "homepage": "https://github.com/pkd2512/codeschool-webscraper#readme"
+}

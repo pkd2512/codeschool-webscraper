@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Getting started with scraping data from the web using NodeJS",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "scrape": "node ./index.js"
   },
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/pkd2512/codeschool-webscraper/issues"
   },
-  "homepage": "https://github.com/pkd2512/codeschool-webscraper#readme"
+  "homepage": "https://github.com/pkd2512/codeschool-webscraper#readme",
+  "dependencies": {
+    "d3-dsv": "^3.0.1",
+    "d3-fetch": "^3.0.1",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^3.2.10",
+    "path": "^0.12.7"
+  }
 }

@@ -5,9 +5,10 @@ name: Scrape
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
+  # push:
+  #   branches: [ "main" ]
   
+  # Triggers workflow on schedule. Pick your cron schedule https://crontab.guru/
   schedule:
   - cron: "0 2 * * 1-5"
 
@@ -18,7 +19,6 @@ on:
 jobs:
   scrape:
     name: Scrape
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -29,13 +29,19 @@ jobs:
         with:
           node-version: '16.15.1'
           cache: 'yarn'
+      - run: yarn install
+
+      # Execute scrape
+      - run: yarn scrape
+
+      # Configure dummy git account. You can replace with your own credentials
       - run: git config user.name github-actions
       - run: git config user.email github-actions@github.com
-      - run: yarn install
-      - run: yarn scrape
+
+      # Save the data in the repository through git-commit
       - run: |
           git add .
-          git commit --allow-empty -m "worklfow run"
+          git commit --allow-empty -m "scrape via worklfow run"
           git push origin master
 
 

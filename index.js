@@ -1,7 +1,8 @@
-import { fetchCSV, fetchJSON } from "./lib/fetchData.js";
 import { writeCSV, writeJSON } from "./lib/writeData.js";
 
+import { fetchHTML } from "./lib/fetchData.js";
 import formatData from "./lib/formatData.js";
+import { parseHTML } from './lib/parseHTML.js';
 
 /**
  * This is the main function where the scraper begins
@@ -14,8 +15,8 @@ const run = async() => {
   /* STEP 1: Fetch the data from the url */
   /* ----------------------------------- */
 
-  const DATA = await fetchJSON("https://raw.githubusercontent.com/stefangabos/world_countries/master/data/countries/_combined/countries.json");
-  const DATA_CSV = await fetchCSV("https://raw.githubusercontent.com/owid/owid-datasets/master/datasets/Air%20Pollutant%20Emissions%20-%20OECD/Air%20Pollutant%20Emissions%20-%20OECD.csv");
+  const HTML = await fetchHTML("https://www.isro.gov.in/list-of-spacecrafts");
+  const DATA = await parseHTML(HTML);
 
   /* ----------------------------------------------------------------- */
   /* STEP 2: Format the data. There can be as many methods as required */
@@ -28,7 +29,7 @@ const run = async() => {
   /* ---------------------------------------------- */
 
   await writeJSON(FORMATTED_DATA, 'database/data.json');
-  await writeCSV(DATA_CSV, 'database/data.csv');
+  await writeCSV(FORMATTED_DATA, 'database/data.csv');
 }
 
 run();

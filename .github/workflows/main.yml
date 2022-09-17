@@ -10,7 +10,7 @@ permissions:
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "webpage-scraper" ]
   
   # Triggers workflow on schedule. Pick your cron schedule https://crontab.guru/
   schedule:
@@ -46,6 +46,6 @@ jobs:
       - run: |
           git add .
           git commit --allow-empty -m "scrape via worklfow run"
-          git push origin main
+          git push origin webpage-scraper
 
 

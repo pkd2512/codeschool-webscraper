@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pkd2512/codeschool-webscraper#readme",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
     "d3-dsv": "^3.0.1",
     "d3-fetch": "^3.0.1",
     "fs": "^0.0.1-security",

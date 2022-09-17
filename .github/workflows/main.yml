@@ -46,6 +46,6 @@ jobs:
       - run: |
           git add .
           git commit --allow-empty -m "scrape via worklfow run"
-          git push origin master
+          git push origin main
 
 
